@@ -1,0 +1,23 @@
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      auto-offset-reset: earliest
+      group-id: helloworld
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: ua.koliambus.spring.boot.kafka.model
+    producer:
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+kafka:
+  topic:
+    helloworld: helloworld.t
+    chat:
+      message: chat-message.t
+      user:
+        add: add-user.t
+        leave: leave-user.t
